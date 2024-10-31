@@ -1,0 +1,39 @@
+entrypoint = "main.sh"
+
+modules = ["bash", "java-graalvm22.3", "nix"]
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["bash", "main.sh"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 80
+externalPort = 3002
+
+[[ports]]
+localPort = 443
+externalPort = 3001
+
+[[ports]]
+localPort = 2019
+externalPort = 3000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 8081
+externalPort = 80
+
+[[ports]]
+localPort = 25565
+externalPort = 4200
+exposeLocalhost = true
+
+[[ports]]
+localPort = 25577
+externalPort = 3003
+exposeLocalhost = true
+
+
